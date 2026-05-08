@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSUN Campus Location Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <h1>CSUN Map Quiz</h1>
+        <p>Find the campus landmark by double-clicking on the map.</p>
+      </div>
+      <div class="status">
+        <div>
+          <span class="label">Question</span>
+          <strong id="question-count">0 / 5</strong>
+        </div>
+        <div>
+          <span class="label">Correct</span>
+          <strong id="score">0</strong>
+        </div>
+        <div>
+          <span class="label">Timer</span>
+          <strong id="timer">00:00</strong>
+        </div>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <section class="game-panel">
+        <div class="card">
+          <div class="card-head">
+            <h2 id="location-name">Loading quiz...</h2>
+            <p id="location-hint" class="hint"></p>
+          </div>
+          <div id="feedback" class="feedback">
+            Double-click the map to submit your guess.
+          </div>
+          <div class="controls">
+            <button id="next-button" class="btn btn-secondary" disabled>
+              Next question
+            </button>
+            <button id="reset-button" class="btn btn-primary">
+              Restart game
+            </button>
+          </div>
+          <div class="note">
+            <p>
+              Panning and zooming are disabled so you can focus on the campus
+              location. Use the hint if you need help.
+            </p>
+          </div>
+        </div>
+
+        <div class="card final-card hidden" id="final-card">
+          <h2>Quiz complete!</h2>
+          <p id="final-summary"></p>
+          <p id="best-score"></p>
+          <button id="play-again" class="btn btn-primary">
+            Play again
+          </button>
+        </div>
+      </section>
+
+      <section id="map" class="map-container"></section>
+    </main>
+
+    <script src="script.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL2OC2EE9I48ujlpgRxXDHozPsbqwPxH4&callback=initMap&v=weekly"
+      async
+    ></script>
+  </body>
+</html>
+//API key: AIzaSyDL2OC2EE9I48ujlpgRxXDHozPsbqwPxH4
+    
