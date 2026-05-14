@@ -1,14 +1,18 @@
+/* CSUN Campus Location Quiz - Styles */
+/* This CSS file provides the visual styling for the interactive map quiz application */
+
+/* Global reset and base styles */
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Include padding and borders in element dimensions */
 }
 
 html,
 body {
   margin: 0;
   min-height: 100%;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #eff4fb;
-  color: #1f2937;
+  font-family: "Segoe UI", Arial, sans-serif; /* Modern, readable font stack */
+  background: #9dcb32; /* CSUN green background */
+  color: #1f2937; /* Dark gray text for good contrast */
 }
 
 body {
@@ -17,14 +21,15 @@ body {
   min-height: 100vh;
 }
 
+/* Header section with branding and game status */
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 18px;
   padding: 20px 28px;
-  background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #d81d1d 0%, #f63b3b 100%); /* CSUN red gradient */
+  color: #ffffff; /* White text on dark background */
 }
 
 .brand h1 {
@@ -34,9 +39,10 @@ body {
 
 .brand p {
   margin: 6px 0 0;
-  opacity: 0.9;
+  opacity: 0.9; /* Slightly transparent subtitle */
 }
 
+/* Game status display grid */
 .status {
   display: grid;
   grid-template-columns: repeat(3, minmax(100px, auto));
@@ -45,7 +51,7 @@ body {
 
 .status div {
   padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.16); /* Semi-transparent white background */
   border-radius: 16px;
   text-align: center;
 }
@@ -53,27 +59,30 @@ body {
 .status .label {
   display: block;
   font-size: 0.85rem;
-  opacity: 0.85;
+  opacity: 0.85; /* Subtle label text */
 }
 
+/* Main application layout */
 .app-shell {
   display: grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: 360px 1fr; /* Fixed sidebar width, flexible map area */
   gap: 24px;
   padding: 24px 28px 28px;
-  flex: 1;
+  flex: 1; /* Take remaining vertical space */
 }
 
+/* Game panel containing quiz interface */
 .game-panel {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
+/* Card component for quiz content */
 .card {
-  background: #ffffff;
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+  background: #ffffff; /* White background */
+  border-radius: 24px; /* Rounded corners */
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08); /* Subtle shadow */
   padding: 24px;
 }
 
@@ -84,92 +93,98 @@ body {
 
 .hint {
   margin: 0;
-  color: #4b5563;
+  color: #4b5563; /* Medium gray for hint text */
 }
 
+/* Feedback message area with different states */
 .feedback {
   margin-top: 22px;
   padding: 18px;
   border-radius: 18px;
-  background: #f8fafc;
-  color: #334155;
-  border: 1px solid #cbd5e1;
-  transition: transform 160ms ease, background 220ms ease, border-color 220ms ease;
+  background: #f8fafc; /* Light gray background */
+  color: #334155; /* Dark gray text */
+  border: 1px solid #cbd5e1; /* Light border */
+  transition: transform 160ms ease, background 220ms ease, border-color 220ms ease; /* Smooth transitions */
 }
 
 .feedback.success {
-  background: #dcfce7;
-  border-color: #86efac;
-  color: #14532d;
-  transform: scale(1.01);
+  background: #dcfce7; /* Light green background */
+  border-color: #86efac; /* Green border */
+  color: #14532d; /* Dark green text */
+  transform: scale(1.01); /* Slight scale up for emphasis */
 }
 
 .feedback.error {
-  background: #fee2e2;
-  border-color: #fca5a5;
-  color: #991b1b;
-  transform: scale(1.01);
+  background: #fee2e2; /* Light red background */
+  border-color: #fca5a5; /* Red border */
+  color: #991b1b; /* Dark red text */
+  transform: scale(1.01); /* Slight scale up for emphasis */
 }
 
+/* Control buttons layout */
 .controls {
   display: flex;
   gap: 14px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allow buttons to wrap on small screens */
   margin-top: 22px;
 }
 
+/* Button base styles */
 .btn {
   border: none;
-  border-radius: 999px;
+  border-radius: 999px; /* Fully rounded buttons */
   padding: 14px 20px;
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 700; /* Bold text */
   cursor: pointer;
-  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease; /* Smooth hover effects */
 }
 
 .btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 22px rgba(15, 23, 42, 0.14);
+  transform: translateY(-1px); /* Lift effect on hover */
+  box-shadow: 0 12px 22px rgba(15, 23, 42, 0.14); /* Drop shadow on hover */
 }
 
 .btn:disabled {
-  opacity: 0.55;
+  opacity: 0.55; /* Dim disabled buttons */
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
 }
 
 .btn-primary {
-  background: #2563eb;
-  color: #ffffff;
+  background: #2563eb; /* Blue background */
+  color: #ffffff; /* White text */
 }
 
 .btn-secondary {
-  background: #e2e8f0;
-  color: #0f172a;
+  background: #e2e8f0; /* Light gray background */
+  color: #0f172a; /* Dark text */
 }
 
+/* Instructional note */
 .note {
   margin-top: 20px;
-  color: #475569;
+  color: #475569; /* Medium gray text */
   font-size: 0.95rem;
-  line-height: 1.65;
+  line-height: 1.65; /* Improved readability */
 }
 
+/* Google Maps container */
 .map-container {
   min-height: 750px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+  border-radius: 24px; /* Rounded corners to match cards */
+  overflow: hidden; /* Clip map to rounded container */
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12); /* Subtle shadow */
 }
 
+/* Final results card */
 .final-card {
   text-align: left;
 }
 
 .final-card.hidden {
-  display: none;
+  display: none; /* Hide final results until quiz completion */
 }
 
 .final-card h2 {
@@ -178,12 +193,13 @@ body {
 
 .final-card p {
   margin: 14px 0;
-  color: #334155;
+  color: #334155; /* Consistent text color */
 }
 
+/* Responsive design for smaller screens */
 @media (max-width: 980px) {
   .app-shell {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack sidebar and map vertically */
   }
 
   .topbar {
@@ -193,11 +209,12 @@ body {
 
   .status {
     width: 100%;
-    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    grid-template-columns: repeat(3, minmax(100px, 1fr)); /* Equal width columns */
   }
 
   .map-container {
-    min-height: 520px;
+    min-height: 520px; /* Smaller height on mobile */
+  }
   }
 }
 

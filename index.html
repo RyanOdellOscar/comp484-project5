@@ -1,10 +1,17 @@
 <!DOCTYPE html>
+<!-- CSUN Campus Location Quiz - HTML Structure -->
+<!-- This HTML file defines the structure of the interactive map quiz application -->
 <html lang="en">
   <head>
+    <!-- Meta tags for proper character encoding and responsive design -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSUN Campus Location Quiz</title>
+
+    <!-- External stylesheet for visual styling -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- jQuery library for DOM manipulation and event handling -->
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -12,11 +19,14 @@
     ></script>
   </head>
   <body>
+    <!-- Header section with branding and game status -->
     <header class="topbar">
       <div class="brand">
         <h1>CSUN Map Quiz</h1>
         <p>Find the campus landmark by double-clicking on the map.</p>
       </div>
+
+      <!-- Game status display showing current question, score, and timer -->
       <div class="status">
         <div>
           <span class="label">Question</span>
@@ -33,24 +43,37 @@
       </div>
     </header>
 
+    <!-- Main application container -->
     <main class="app-shell">
+      <!-- Game panel containing quiz interface -->
       <section class="game-panel">
+        <!-- Main quiz card showing current question -->
         <div class="card">
           <div class="card-head">
+            <!-- Location name (hidden initially, revealed after first mistake) -->
             <h2 id="location-name">Loading quiz...</h2>
+            <!-- Hint text describing the location -->
             <p id="location-hint" class="hint"></p>
           </div>
+
+          <!-- Feedback area showing success/error messages -->
           <div id="feedback" class="feedback">
             Double-click the map to submit your guess.
           </div>
+
+          <!-- Control buttons for navigation -->
           <div class="controls">
+            <!-- Next question button (disabled until answer is submitted) -->
             <button id="next-button" class="btn btn-secondary" disabled>
               Next question
             </button>
+            <!-- Reset game button -->
             <button id="reset-button" class="btn btn-primary">
               Restart game
             </button>
           </div>
+
+          <!-- Instructional note about map controls -->
           <div class="note">
             <p>
               Panning and zooming are disabled so you can focus on the campus
@@ -59,6 +82,7 @@
           </div>
         </div>
 
+        <!-- Final results card (hidden until quiz completion) -->
         <div class="card final-card hidden" id="final-card">
           <h2>Quiz complete!</h2>
           <p id="final-summary"></p>
@@ -69,10 +93,14 @@
         </div>
       </section>
 
+      <!-- Google Maps container -->
       <section id="map" class="map-container"></section>
     </main>
 
+    <!-- Application JavaScript -->
     <script src="script.js"></script>
+
+    <!-- Google Maps API with callback to initialize the map -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL2OC2EE9I48ujlpgRxXDHozPsbqwPxH4&callback=initMap&v=weekly"
       async
